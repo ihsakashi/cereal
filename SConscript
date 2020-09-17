@@ -43,7 +43,7 @@ Depends('messaging/impl_zmq.cc', services_h)
 
 # note, this rebuilds the deps shared, zmq is statically linked to make APK happy
 # TODO: get APK to load system zmq to remove the static link
-if arch == "aarch64":
+if arch == "aarch64" and os.path.isdir("/EON"):
   zmq_static = FindFile("libzmq.a", "/usr/lib")
   shared_lib_shared_lib = [zmq_static, 'm', 'stdc++', "c++_shared", "kj", "capnp"]
   env.SharedLibrary('messaging_shared', messaging_objects, LIBS=shared_lib_shared_lib)
