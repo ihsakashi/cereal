@@ -37,7 +37,7 @@ ARCH = subprocess.check_output(["uname", "-m"], encoding='utf8').rstrip()  # pyl
 if ARCH == "aarch64" and os.path.isdir("/system"):
   # android
   extra_compile_args += ["-Wno-deprecated-register"]
-  libraries += ['gnustl_shared']
+  libraries += ['c++_shared']
 
 setup(name='messaging',
       cmdclass={'build_ext': BuildExtWithoutPlatformSuffix},

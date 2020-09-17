@@ -45,7 +45,7 @@ Depends('messaging/impl_zmq.cc', services_h)
 # TODO: get APK to load system zmq to remove the static link
 if arch == "aarch64":
   zmq_static = FindFile("libzmq.a", "/usr/lib")
-  shared_lib_shared_lib = [zmq_static, 'm', 'stdc++', "gnustl_shared", "kj", "capnp"]
+  shared_lib_shared_lib = [zmq_static, 'm', 'stdc++', "c++_shared", "kj", "capnp"]
   env.SharedLibrary('messaging_shared', messaging_objects, LIBS=shared_lib_shared_lib)
 
 env.Program('messaging/bridge', ['messaging/bridge.cc'], LIBS=[messaging_lib, 'zmq'])
