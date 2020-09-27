@@ -1,5 +1,6 @@
 Import('env', 'arch', 'zmq', 'cython_dependencies')
 
+import os
 import shutil
 
 gen_dir = Dir('gen')
